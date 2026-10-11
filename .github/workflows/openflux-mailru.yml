@@ -51,7 +51,12 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v6
         with:
-          go-version: '1.26.4'
+          # 'stable', а не точная версия: upstream OpenFlux клонируется на лету, и его
+          # go.mod требует Go новее зашитого. Пин 1.26.4 перестал работать с выходом
+          # релиза 0.5.1, где в go.mod стало `go 1.26.6` — сборка падала кодом 1.
+          # Более новый тулчейн собирает и более старый go.mod, поэтому 'stable'
+          # переживает и это повышение, и следующие.
+          go-version: 'stable'
           cache: false
 
       - name: Verify Go
