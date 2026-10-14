@@ -127,7 +127,7 @@ jobs:
           echo "Mode: l4 (proxy)"
           echo "Transport: ${TRANSPORT}"
           echo "URL: configured (hidden)"
-          echo "Debug: enabled (временно, для разбора обрыва WebSocket)"
+          echo "Debug: disabled"
           echo "======================================"
 
           exec sudo ./universal-bypass-tool \
@@ -135,5 +135,4 @@ jobs:
             --mode=l4 \
             --codec=legacy \
             --transport "$TRANSPORT" \
-            --url "$DOC_URL" \
-            --debug
+            --url "$DOC_URL"
